@@ -1,7 +1,7 @@
 # ADCSink
-A little and dirty bash script to add ESC1 on a certificate template and retrieve NT&amp;LM hashes using UnPAC the hash method. 
+A little and dirty bash script to POC a "NTDS dumping" technique. to do so, it adds an ESC1 vulnerability on a certificate template and retrieve NT&amp;LM hashes using UnPAC the hash method. 
 
-This script needs the tool Certipy to be installed to work :). 
+This script needs the tool Certipy to be installed to work :D. 
 
 ## Usage 
 
