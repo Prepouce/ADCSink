@@ -1,7 +1,7 @@
 #!/bin/bash
 if [ $# -lt 1 ]; then
 #man
-	echo DumpNTDS_ADCS.sh username password template_name target_ca ca dc-ip users_file  
+	echo DumpNTDS_ADCS.sh username domain password template_name target_ca ca_name dc-ip users_file  
 else
 	username=$1; domain=$2; password=$3; template=$4; target_ca=$5; ca=$6; dc=$7; users_file=$8; output_dir='output_'$template
 	mkdir $output_dir
