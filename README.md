@@ -5,7 +5,7 @@ This script needs the tool Certipy to be installed to work :D.
 
 ## Usage 
 
-	./ADCSink.sh username domain password template_name target_ca ca_name dc-ip users_file  
+	./ADCSink.sh -u username -d domain -T template_name -t targeted_ca -c ca_name -i dc-ip -U targeted_users [-p password] [-H hash]
 
 
 ## Common Errors 
