@@ -7,7 +7,7 @@ verbose=0
 while getopts "h?:v:u:p:d:T:t:i:U::c:H:" opt; do
   case "$opt" in
     h|\?)
-      echo "./ADCSink.sh -u username -d domain -p password -T template_name -t targeted_ca -c ca_name -i dc-ip -U targeted_users"
+      echo "./ADCSink.sh -u username -d domain -T template_name -t targeted_ca -c ca_name -i dc-ip -U targeted_users [-p password] [-H hash]"
       exit 0
       ;;
     v)  verbose=1
