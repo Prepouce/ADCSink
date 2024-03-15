@@ -38,6 +38,13 @@ done
 
 shift $((OPTIND-1))
 
+if ! command -v certipy &> /dev/null
+then
+    echo "certipy could not be found, install it with the following command:"
+    echo "pip3 install certipy-ad"
+    exit 1
+fi
+
 [ "${1:-}" = "--" ] && shift
 
 if [ ! -z "$hash" ]; then
