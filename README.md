@@ -1,6 +1,7 @@
 # ADCSink
 
-A little and dirty bash script to POC a "NTDS dumping" technique. to do so, it adds an ESC1 vulnerability on a certificate template and retrieve NT&amp;LM hashes using UnPAC the hash method. 
+A quick and dirty bash script to POC a "NTDS dumping" technique. 
+It modifies a certificate template in order to add an ESC1 vulnerability and retrieve NT&amp;LM hashes using UnPAC-the-hash method. 
 
 This script is based on [Certipy](https://github.com/ly4k/Certipy) :D, you should installed it before running the script.
 
@@ -11,8 +12,9 @@ pip3 install certipy-ad
 ## Usage
 
 ```bash
-./ADCSink.sh -u username -d domain -T template_name -t targeted_ca -c ca_name -i dc-ip -U targeted_users [-p password] [-H hash]
+./ADCSink.sh -u username -d domain -T template_name -t targeted_ca -c ca_name -i dc-ip -U targeted_users [-p password] [-H hash] [-s]
 ```
+The "-s" options could be added if you do not need / want to modify the certifiate template (exemple: you already had an ESC1 vulnerability)
 
 ## Similar projects
 
