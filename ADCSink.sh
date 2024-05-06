@@ -38,7 +38,7 @@ done
 
 shift $((OPTIND-1))
 
-if ! command -v certipy &> /dev/null
+if ! command -v certipy 
 then
     echo "certipy could not be found, install it with the following command:"
     echo "pip3 install certipy-ad"
