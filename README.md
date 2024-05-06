@@ -11,7 +11,7 @@ pip3 install certipy-ad
 
 ## Usage
 
-```bash
+```text
 ./ADCSink.sh
 Options:
   -u TEXT                | Compromised account's username (required)
