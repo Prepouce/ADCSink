@@ -14,14 +14,16 @@ pip3 install certipy-ad
 ```bash
 ./ADCSink.sh
 Options:
-  -u username
-  -d domain
-  -T template_name
-  -t targeted_server
-  -c ca_name
-  -i dc-ip
-  -U targeted_users_list
-  -p password OR -H NT_hash  
+  -u TEXT                | Compromised account's username (required)
+  -d TEXT                | Targeted domain (required)
+  -T TEXT                | Vulnerable template or template to make vulnerable (-s) (required)
+  -t TEXT                | Targeted server hosting the ADCS component (required)
+  -c TEXT                | Name of the targeted CA (required)
+  -i TEXT                | Domain controller's IP address (required)
+  -U TEXT                | List of targeted users (required)
+  -p TEXT                | Compromised account's password (required if no hash is specified)
+  -H TEXT                | Compromised account's NT hash (required if no hash is specified)
+  -s                     | No template modifications are be made 
 ```
 The "-s" options could be added if you do not need / want to modify the certifiate template (exemple: you already had an ESC1 vulnerability)
 
