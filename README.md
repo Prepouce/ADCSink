@@ -12,7 +12,16 @@ pip3 install certipy-ad
 ## Usage
 
 ```bash
-./ADCSink.sh -u username -d domain -T template_name -t targeted_ca -c ca_name -i dc-ip -U targeted_users [-p password] [-H hash] [-s]
+./ADCSink.sh
+Options:
+  -u username
+  -d domain
+  -T template_name
+  -t targeted_server
+  -c ca_name
+  -i dc-ip
+  -U targeted_users_list
+  -p password OR -H NT_hash  
 ```
 The "-s" options could be added if you do not need / want to modify the certifiate template (exemple: you already had an ESC1 vulnerability)
 
@@ -23,5 +32,6 @@ The "-s" options could be added if you do not need / want to modify the certifia
 
 ## Common Errors
 
-KDC_ERR_PADATA_TYPE_NOSUPP : It is not possible to authenticate using Kerberos (therefore UnPAC the hash method cannot be used). More information: https://offsec.almond.consulting/authenticating-with-certificates-when-pkinit-is-not-supported.html 
+KDC_ERR_PADATA_TYPE_NOSUPP : It is not possible to authenticate using Kerberos (therefore UnPAC the hash method cannot be used). 
+More information: https://offsec.almond.consulting/authenticating-with-certificates-when-pkinit-is-not-supported.html 
 
