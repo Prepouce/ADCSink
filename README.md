@@ -16,7 +16,7 @@ pip3 install certipy-ad
 Options:
   -u TEXT                | Compromised account's username (required)
   -d TEXT                | Targeted domain (required)
-  -T TEXT                | Vulnerable template or template to make vulnerable (-s) (required)
+  -T TEXT                | Vulnerable template or template to make vulnerable (required)
   -t TEXT                | Targeted server hosting the ADCS component (required)
   -c TEXT                | Name of the targeted CA (required)
   -i TEXT                | Domain controller's IP address (required)
