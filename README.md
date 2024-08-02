@@ -1,9 +1,9 @@
 # ADCSink
 
-A quick and dirty bash script to POC a "NTDS dumping" technique. 
+A quick and dirty script to POC a "NTDS dumping" technique. 
 It modifies a certificate template in order to add an ESC1 vulnerability and retrieve NT&amp;LM hashes using UnPAC-the-hash method. 
 
-This script is based on [Certipy](https://github.com/ly4k/Certipy) :D, you should installed it before running the script.
+This script is based on [Certipy](https://github.com/ly4k/Certipy) :D, you should install it before running the script.
 
 ```text
 pip3 install certipy-ad
@@ -31,6 +31,9 @@ The "-s" options could be added if you do not need / want to modify the certifia
 
 [ADCsync](https://github.com/JPG0mez/ADCSync/blob/main/adcsync.py)
 
+## More information
+[Unpac-the-hash](https://www.thehacker.recipes/a-d/movement/kerberos/unpac-the-hash)
+[ESC1](https://book.hacktricks.xyz/windows-hardening/active-directory-methodology/ad-certificates/domain-escalation#misconfigured-certificate-templates-esc1)
 
 ## Common Errors
 
