@@ -11,6 +11,9 @@ pip3 install certipy-ad
 
 ## Usage
 
+![image](https://github.com/user-attachments/assets/4f291faf-6b8a-4388-ac72-6287435f5843)
+
+
 ```text
 ./ADCSink.sh
 Options:
